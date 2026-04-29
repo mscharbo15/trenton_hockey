@@ -51,7 +51,7 @@
 
   .team-name {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 900;
     color: #fff;
     letter-spacing: 0.5px;
@@ -454,6 +454,53 @@
     line-height: 1;
   }
 
+
+  /* ── Special Teams ── */
+  .st-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+
+  .st-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .st-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .st-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .st-badge.blue { background: #0f1e2e; color: var(--blue); border: 1px solid #1e3a5a; }
+  .st-badge.red  { background: #2a0f0f; color: var(--red);  border: 1px solid #5a1e1e; }
+
+  .st-block .xg-card {
+    padding: 6px 4px;
+  }
+
+  .st-block .xg-val {
+    font-size: 28px;
+  }
+
   .spacer { height: 32px; }
 
   /* ── Transitions ── */
@@ -517,11 +564,11 @@
   <div class="section-label">Possession</div>
   <div class="xg-row">
     <div class="xg-card">
-      <div class="xg-label" style="color:var(--blue)">Trenton CF%</div>
+      <div class="xg-label" style="color:var(--blue)">Trenton</div>
       <div class="xg-val" style="color:var(--blue)" id="cf-for">—</div>
     </div>
     <div class="xg-card">
-      <div class="xg-label" style="color:var(--red)">Opp CF%</div>
+      <div class="xg-label" style="color:var(--red)">Opp</div>
       <div class="xg-val" style="color:var(--red)" id="cf-ag">—</div>
     </div>
   </div>
@@ -537,15 +584,15 @@
   <div class="section-label">Zone Entry Breakdown</div>
   <div class="entry-row">
     <div class="entry-tile">
-      <div class="et-label" style="color:var(--blue)">Controlled</div>
+      <div class="et-label" style="color:var(--blue)">Ctrl Rate</div>
       <div class="et-val" style="color:var(--blue)" id="entry-ctrl-pct">—</div>
     </div>
     <div class="entry-tile">
-      <div class="et-label" style="color:var(--amber)">Dump-in</div>
+      <div class="et-label" style="color:var(--amber)">Dump Rate</div>
       <div class="et-val" style="color:var(--amber)" id="entry-dump-pct">—</div>
     </div>
     <div class="entry-tile">
-      <div class="et-label" style="color:var(--red)">Failed</div>
+      <div class="et-label" style="color:var(--red)">Fail Rate</div>
       <div class="et-val" style="color:var(--red)" id="entry-fail-pct">—</div>
     </div>
   </div>
@@ -561,17 +608,67 @@
   <div class="section-label">Expected Goals</div>
   <div class="xg-row">
     <div class="xg-card">
-      <div class="xg-label" style="color:var(--blue)">Trenton xG</div>
+      <div class="xg-label" style="color:var(--blue)">Trenton</div>
       <div class="xg-val" style="color:var(--blue)" id="xg-for">—</div>
     </div>
     <div class="xg-card">
-      <div class="xg-label" style="color:var(--red)">Opp xG</div>
+      <div class="xg-label" style="color:var(--red)">Opp</div>
       <div class="xg-val" style="color:var(--red)" id="xg-ag">—</div>
     </div>
   </div>
 </div>
 
 
+
+
+<!-- Special Teams -->
+<div class="section fade-section">
+  <div class="section-label">Special Teams</div>
+
+  <!-- Power Play -->
+  <div class="st-block">
+    <div class="st-header">
+      <span class="st-title">Power Play</span>
+
+    </div>
+    <div class="xg-row" style="margin-bottom:6px">
+      <div class="xg-card">
+        <div class="xg-label" style="color:var(--blue)">PP xG</div>
+        <div class="xg-val" style="color:var(--blue)" id="pp-xg">—</div>
+      </div>
+      <div class="xg-card">
+        <div class="xg-label" style="color:var(--text-muted)">Ctrl Entry Rate</div>
+        <div class="xg-val" style="color:var(--text)" id="pp-ctrl">—</div>
+      </div>
+      <div class="xg-card">
+        <div class="xg-label" style="color:var(--text-muted)">SC Rate</div>
+        <div class="xg-val" style="color:var(--text)" id="pp-shots">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Penalty Kill -->
+  <div class="st-block">
+    <div class="st-header">
+      <span class="st-title">Penalty Kill</span>
+
+    </div>
+    <div class="xg-row" style="margin-bottom:0">
+      <div class="xg-card">
+        <div class="xg-label" style="color:var(--red)">PK xG Ag.</div>
+        <div class="xg-val" style="color:var(--red)" id="pk-xg">—</div>
+      </div>
+      <div class="xg-card">
+        <div class="xg-label" style="color:var(--text-muted)">Exit Rate</div>
+        <div class="xg-val" style="color:var(--text)" id="pk-ctrl">—</div>
+      </div>
+      <div class="xg-card">
+        <div class="xg-label" style="color:var(--text-muted)">SC Ag. Rate</div>
+        <div class="xg-val" style="color:var(--text)" id="pk-shots">—</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="spacer"></div>
 
@@ -585,6 +682,7 @@ const GAMES = [
     teamFF: 0.3590, oppFF: 0.6410,
     teamCorsi: 34, oppCorsi: 58,
     teamXG: 3.80, oppXG: 7.28, gsaa: -1.14,
+    ppXG: 0.6, ppCtrl: 0.44, ppShots: 0.22, pkXG: 1.8, pkCtrl: 0.58, pkShots: 0.32,
     entriesTotal: 67, ctrlN: 19, ctrlPct: 0.2836, dumpN: 25, dumpPct: 0.3731, failN: 23, failPct: 0.3433,
     cEntryXG: 1.7, dEntryXG: 0.8,
   },
@@ -595,6 +693,7 @@ const GAMES = [
     teamFF: 0.5323, oppFF: 0.4677,
     teamCorsi: 41, oppCorsi: 37,
     teamXG: 3.20, oppXG: 2.85, gsaa: 0.45,
+    ppXG: 1.4, ppCtrl: 0.62, ppShots: 0.38, pkXG: 0.8, pkCtrl: 0.72, pkShots: 0.21,
     entriesTotal: 71, ctrlN: 24, ctrlPct: 0.3380, dumpN: 28, dumpPct: 0.3944, failN: 19, failPct: 0.2676,
     cEntryXG: 2.1, dEntryXG: 1.1,
   },
@@ -605,6 +704,7 @@ const GAMES = [
     teamFF: 0.3793, oppFF: 0.6207,
     teamCorsi: 28, oppCorsi: 44,
     teamXG: 2.15, oppXG: 3.90, gsaa: -0.70,
+    ppXG: 0.4, ppCtrl: 0.40, ppShots: 0.18, pkXG: 2.1, pkCtrl: 0.54, pkShots: 0.35,
     entriesTotal: 58, ctrlN: 15, ctrlPct: 0.2586, dumpN: 22, dumpPct: 0.3793, failN: 21, failPct: 0.3621,
     cEntryXG: 0.9, dEntryXG: 0.5,
   },
@@ -615,6 +715,7 @@ const GAMES = [
     teamFF: 0.5846, oppFF: 0.4154,
     teamCorsi: 47, oppCorsi: 35,
     teamXG: 3.75, oppXG: 2.60, gsaa: 0.50,
+    ppXG: 1.8, ppCtrl: 0.67, ppShots: 0.41, pkXG: 0.6, pkCtrl: 0.75, pkShots: 0.19,
     entriesTotal: 74, ctrlN: 28, ctrlPct: 0.3784, dumpN: 27, dumpPct: 0.3649, failN: 19, failPct: 0.2568,
     cEntryXG: 2.4, dEntryXG: 0.7,
   },
@@ -625,6 +726,7 @@ const GAMES = [
     teamFF: 0.5254, oppFF: 0.4746,
     teamCorsi: 39, oppCorsi: 36,
     teamXG: 2.90, oppXG: 2.55, gsaa: 0.35,
+    ppXG: 1.1, ppCtrl: 0.55, ppShots: 0.32, pkXG: 0.9, pkCtrl: 0.68, pkShots: 0.24,
     entriesTotal: 63, ctrlN: 21, ctrlPct: 0.3333, dumpN: 24, dumpPct: 0.3810, failN: 18, failPct: 0.2857,
     cEntryXG: 1.8, dEntryXG: 0.9,
   },
@@ -635,6 +737,7 @@ const GAMES = [
     teamFF: 0.3585, oppFF: 0.6415,
     teamCorsi: 24, oppCorsi: 41,
     teamXG: 1.80, oppXG: 3.50, gsaa: -0.55,
+    ppXG: 0.3, ppCtrl: 0.38, ppShots: 0.15, pkXG: 1.6, pkCtrl: 0.56, pkShots: 0.31,
     entriesTotal: 55, ctrlN: 14, ctrlPct: 0.2545, dumpN: 21, dumpPct: 0.3818, failN: 20, failPct: 0.3636,
     cEntryXG: 0.7, dEntryXG: 0.4,
   },
@@ -760,10 +863,22 @@ function render(filterKey) {
   document.getElementById('xg-for').textContent = dec(avgXGFor);
   document.getElementById('xg-ag').textContent  = dec(avgXGAg);
 
-  // GSAA
-  const gsaaEl = document.getElementById('gsaa-val');
-  gsaaEl.textContent = (avgGSAA >= 0 ? '+' : '') + dec(avgGSAA);
-  gsaaEl.style.color = gsaaColor(avgGSAA);
+  // Special Teams
+  const avgPPxG   = avg(filtered, g => g.ppXG);
+  const avgPPCtrl = avg(filtered, g => g.ppCtrl);
+  const avgPPShots = avg(filtered, g => g.ppShots);
+  const avgPKxG   = avg(filtered, g => g.pkXG);
+  const avgPKCtrl = avg(filtered, g => g.pkCtrl);
+  const avgPKShots = avg(filtered, g => g.pkShots);
+
+  document.getElementById('pp-xg').textContent   = dec(avgPPxG);
+  document.getElementById('pp-ctrl').textContent  = pct(avgPPCtrl);
+  document.getElementById('pp-shots').textContent = pct(avgPPShots);
+  document.getElementById('pk-xg').textContent   = dec(avgPKxG);
+  document.getElementById('pk-ctrl').textContent  = pct(avgPKCtrl);
+  document.getElementById('pk-shots').textContent = pct(avgPKShots);
+
+
 }
 
 // ── Dropdown interactions ────────────────────────────────────────────────────
